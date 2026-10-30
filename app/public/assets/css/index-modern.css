@@ -1,0 +1,507 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f5f7fb;
+  color: #0a1a2c;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 5rem 6vw;
+}
+
+.hero > div:first-child {
+  flex: 1.2;
+}
+
+.hero > div:last-child {
+  flex: 0.8;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  color: #00d4c4;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 3.4vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.85rem 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #2f6fed, #00d4c4);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(47, 111, 237, 0.35);
+}
+
+.btn.ghost {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #0a1a2c;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-visual:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+}
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 6vw 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+}
+
+.section-title span {
+  color: #64748b;
+}
+
+/* ===== CARDS / PORTALS GRID ===== */
+.cards,
+.portals {
+  display: grid;
+  gap: 2rem;
+  padding: 0 6vw 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ===== OFFERS CAROUSEL ===== */
+.offers-carousel-container {
+  overflow: hidden;
+  padding: 0 6vw 2rem;
+  position: relative;
+}
+
+.offers-carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 60s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== EVENTS CAROUSEL (DIRECTION INVERSE) ===== */
+.events-carousel-container {
+  overflow: hidden;
+  padding: 0 6vw 2rem;
+  position: relative;
+}
+
+.events-carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollReverse 60s linear infinite;
+  width: max-content;
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.carousel-card {
+  flex: 0 0 auto;
+  width: 300px;
+  animation: cardFadeIn 0.5s ease-in;
+}
+
+.offers-carousel-container:hover .offers-carousel-track,
+.events-carousel-container:hover .events-carousel-track {
+  animation-play-state: paused;
+}
+
+.card,
+.portal-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.card:hover,
+.portal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card h3,
+.portal-card h3 {
+  color: #2f6fed;
+  margin-bottom: 0.7rem;
+}
+
+.card p,
+.portal-card p {
+  color: #475569;
+}
+
+/* ===== TEAM ===== */
+.team-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 0 6vw 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* ===== STUDENTS ROTATION ===== */
+.students-rotation-container {
+  padding: 0 6vw 2rem;
+}
+
+.student-card {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.student-card.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.student-card.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.team-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-member {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.team-member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.team-member:hover .team-overlay {
+  opacity: 1;
+}
+
+.team-icon {
+  width: 35px;
+  height: 35px;
+  background: white;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.team-icon:hover {
+  background: #0077b5;
+  color: white;
+}
+
+.team-card h4 {
+  color: #2f6fed;
+}
+
+.team-card span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 2rem 6vw 3rem;
+  background: #fff;
+  color: #64748b;
+  margin-top: 4rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  header.active {
+    transform: translateX(0);
+  }
+
+  .main-content-wrapper {
+    margin-left: 0;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero > div {
+    width: 100%;
+  }
+
+  .section-title {
+    margin: 4rem 2rem 3rem;
+  }
+
+  .cards,.portals,
+  .team-grid {
+    padding: 1rem;
+  }
+
+  footer {
+    padding: 2rem 2rem 3rem;
+  }
+
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: #2f6fed;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+}
+
+/* Mobile menu toggle - hidden on desktop */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+body.dark header {
+  background: rgba(10, 16, 29, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .logo {
+  color: #2f6fed;
+}
+
+body.dark .nav-links a {
+  color: #f5f7fb;
+}
+
+body.dark .nav-links a.active {
+  color: #2f6fed;
+}
+
+body.dark .toggle-dark {
+  background: #11192b;
+  color: #f5f7fb;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .hero h1,
+body.dark .hero h2,
+body.dark .hero h3 {
+  color: #ffffff;
+}
+
+body.dark .hero p,
+body.dark .card p,
+body.dark .card h3 {
+  color: #e2e8f0;
+}
+
+body.dark .eyebrow {
+  color: #00d4c4;
+}
+
+body.dark .card,
+body.dark .portal-card {
+  background: #1c293d;
+  color: #ffffff;
+}
+
+body.dark .team-card {
+  background: #111;
+  color: #ffffff;
+}
+
+body.dark .team-card h4 {
+  color: #ffffff;
+}
+
+body.dark .team-card span,
+body.dark .section-title span,
+body.dark footer {
+  color: #94a3b8;
+}
+
+body.dark .section-title h2 {
+  color: #ffffff;
+}
+
+body.dark .btn.primary {
+  background: linear-gradient(135deg, #00d4c4, #2f6fed);
+  color: #ffffff;
+}
+
+body.dark .btn.ghost {
+  border-color: #00d4c4;
+  color: #00d4c4;
+}
+
+body.dark footer {
+  background: rgba(10, 16, 29, 0.8);
+}
+
+body.dark .carousel-card h3 {
+  color: #ffffff;
+}
+
+body.dark .carousel-card p {
+  color: #e2e8f0;
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #0077ff;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.2s;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: #005edc;
+}
